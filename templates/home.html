@@ -1,0 +1,276 @@
+<html>
+    <head>
+
+        <style>
+            body {
+                background-color: Lavender; 
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+            }
+
+           
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1 style = "Color : rgb(176, 21, 21); background-color : rgb(36, 199, 214); font-size : 60;
+        font-family : Cascadia Code">Automated Machine Learning Systems</h1>
+        <h2><p style = "font-size: 35;font-family : Cascadia Code;">Dataset used: Wine Quality Dataset</p> </h2>
+        <h2><p style = "font-size : 35;font-family : Cascadia Code">Kaggle Link of Data set: </p> </h2>
+        <button style = "font-size: 30; "><a href="https://www.kaggle.com/datasets/rajyellow46/wine-quality">Click Here</a></button>
+        <br>
+        <br>
+
+        <form action = "/load" method = "POST">
+        <h2 style = "font-size : 25;font-family : Cascadia Code">Click to load your dataset here: </h2>
+        <input type = "submit" name = "submit_button" value = "Click" onclick = "load1()">
+        <p id = "message1">Data is not loaded yet</p>
+        </form>
+
+        
+        <form action = "/shape" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to check rows and columns in Dataset: </h2>
+            <input type = "submit" name = "check_shape" value = "Click" onclick = "load2()">
+            <p id = "message2">Rows and Columns not checked</p>
+            </form>
+
+
+        <form action = "/column_names" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to see column names: </h2>
+            <input type = "submit" name = "check_column_names" value = "Click" onclick = "load3()">
+            <p id = "message3">Columns not seen</p>
+            </form>
+
+        <form action = "/missing_values" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to check missing values: </h2>
+            <input type = "submit" name = "missing_values" value = "Click" onclick = "load4()">
+            <p id = "message4">Missing Values not checked</p>
+            </form>
+
+        <form action = "/handle_miss_value" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to Handle missing values: </h2>
+            <input type = "submit" name = "handling_values" value = "Click" onclick = "load5()">
+            <p id = "message5">Missing Values not fixed</p>
+            </form>
+        
+        <form action = "/categorical_feature" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to Check categorical features: </h2>
+            <input type = "submit" name = "cat_feature" value = "Click" onclick = "load6()">
+            <p id = "message6">Categorical Features not checked </p>
+            </form>
+
+        <form action = "/ordinal_encoding" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to do Ordinal Encoding on the Categorical Features: </h2>
+            <input type = "submit" name = "encode" value = "Click" onclick = "load7()">
+            <p id = "message7">Not Encoded Yet </p>
+            </form>
+
+        <form action = "/set_target" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click to Set last feature as target variable: </h2>
+            <input type = "submit" name = "target" value = "Click" onclick = "load8()">
+            <p id = "message8">Target variable Not Set </p>
+            </form>
+
+        <form action = "/feature_selection" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click Here to eliminate Highly Correlated Independent Features: </h2>
+            <input type = "submit" name = "f_select" value = "Click" onclick = "load9()">
+            <p id = "message9">Elimination of highly Correlated features pending </p>
+            </form>
+
+        <form action = "/standard_scaler" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click Here to load Standard Scaler </h2>
+            <input type = "submit" name = "std_scaler" value = "Click" onclick = "load10()">
+            <p id = "message10">Standard is not loaded yet </p>
+            </form>
+
+        <form action = "/train_test_split" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to split the DataSet into training and test data </h2>
+            <input type = "submit" name = "split" value = "Click" onclick = "load11()">
+            <p id = "message11">Data not splitted yet </p>
+            </form>
+        
+        <form action = "/scaling" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to scale train and test data </h2>
+            <input type = "submit" name = "scale" value = "Click" onclick = "load12()">
+            <p id = "message12">Data not scaled yet</p>
+            </form>
+        
+        <h1>Lets Start training Models Now</h1> <br>
+
+
+        <form action = "/linear_regression" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Linear Regression Model </h2>
+            <input type = "submit" name = "linear" value = "Click" onclick = "load13()">
+            <p id = "message13">Linear Regression Model not trained yet</p>
+            </form>
+        
+        <form action = "/ridge_regression" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Ridge Regression Model </h2>
+            <input type = "submit" name = "ridge" value = "Click" onclick = "load14()">
+            <p id = "message14">Ridge Regression Model not trained yet</p>
+            </form>
+
+        <form action = "/lasso_regression" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Lasso Regression Model </h2>
+            <input type = "submit" name = "lasso" value = "Click" onclick = "load15()">
+            <p id = "message15">Lasso Regression Model not trained yet</p>
+            </form>
+        
+        <form action = "/elastic_net_regression" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Elastic Net Model </h2>
+            <input type = "submit" name = "elastic" value = "Click" onclick = "load16()">
+            <p id = "message16">Elastic Net Model not trained yet</p>
+            </form>
+        
+        <form action = "/logistic_regression" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Logistic Regression Model </h2>
+            <input type = "submit" name = "logistic" value = "Click" onclick = "load17()">
+            <p id = "message17">Logistic Regression Model not trained yet</p>
+            </form>
+
+        <form action = "/decision_tree_classifier" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Decision Tree Classifier Model </h2>
+            <input type = "submit" name = "decision" value = "Click" onclick = "load18()">
+            <p id = "message18">Decision Tree Classifier Model not trained yet</p>
+            </form>
+
+        <form action = "/decision_tree_regressor" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Decision Tree Regressor Model </h2>
+            <input type = "submit" name = "decision_regressor" value = "Click" onclick = "load19()">
+            <p id = "message19">Decision Tree Regressor Model not trained yet</p>
+            </form>
+
+        <form action = "/support_vector_classifier" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Support Vector Classifier Model </h2>
+            <input type = "submit" name = "support" value = "Click" onclick = "load20()">
+            <p id = "message20">Support Vector Classifier Model not trained yet</p>
+            </form>
+
+        <form action = "/support_vector_regressor" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Support Vector Regressor Model </h2>
+            <input type = "submit" name = "support_regressor" value = "Click" onclick = "load21()">
+            <p id = "message21">Support Vector Regressor Model not trained yet</p>
+            </form>
+
+        <form action = "/naive_bayes_classifier" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Naive Bayes Classifier Model </h2>
+            <input type = "submit" name = "naive" value = "Click" onclick = "load22()">
+            <p id = "message22">Naive Bayes Classifier Model not trained yet</p>
+            </form>
+
+        <form action = "/random_forest_classifier" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train Random Forest Classifier Model </h2>
+            <input type = "submit" name = "random" value = "Click" onclick = "load23()">
+            <p id = "message23">Random Forest Classifier Model not trained yet</p>
+            </form>
+
+        <form action = "/adaboost_classifier" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to train AdaBoost Classifier Model </h2>
+            <input type = "submit" name = "adaboost" value = "Click" onclick = "load24()">
+            <p id = "message24">AdaBoost Classifier Model not trained yet</p>
+            </form>
+
+        <h1>Time for Predictions and Accuracies
+        </h1>
+
+        <form action = "/prediction" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to predict the values </h2>
+            <input type = "submit" name = "predict" value = "Click" onclick = "load25()">
+            <p id = "message25">Predictions not done yet</p>
+            </form>
+        
+        <form action = "/accuracy" method = "POST">
+            <h2 style = "font-size : 25;font-family : Cascadia Code">Click here to get the accuracies </h2>
+            <input type = "submit" name = "accuracy" value = "Click" onclick = "load26()">
+            <p id = "message26">Accuracies not calculated yet</p>
+            </form>
+
+        
+        <script> function load1() {
+            document.getElementById("message1").innerHTML = "Dataset Loaded";
+        }
+        function load2() {
+            document.getElementById("message2").innerHTML = "Rows and Columns Checked";
+        }
+        function load3() {
+            document.getElementById("message3").innerHTML = "Column Names Seen";
+        }
+        function load4() {
+            document.getElementById("message4").innerHTML = "Missing Values Checked";
+        }
+        function load5() {
+            document.getElementById("message5").innerHTML = "Missing Values Handled";
+        }
+        function load6() {
+            document.getElementById("message6").innerHTML = "Categorical Features Checked";
+        }
+        function load7() {
+            document.getElementById("message7").innerHTML = "Ordinally Encoded";
+        }
+        function load8() {
+            document.getElementById("message8").innerHTML = "Target Variable is Set now";
+        }
+        function load9() {
+            document.getElementById("message9").innerHTML = "Highly Correlated Features Eliminated";
+        }
+        function load10() {
+            document.getElementById("message10").innerHTML = "Standard Scaler is Loaded now";
+        }
+        function load11() {
+            document.getElementById("message11").innerHTML = "Data is Splitted now";
+        }
+        function load12() {
+            document.getElementById("message12").innerHTML = "Data is scaled now";
+        }
+        function load13() {
+            document.getElementById("message13").innerHTML = "Linear Regression Model is trained now";
+        }
+        function load14() {
+            document.getElementById("message14").innerHTML = "Ridge Regression Model is trained now";
+        }
+        function load15() {
+            document.getElementById("message15").innerHTML = "Lasso Regression Model is trained now";
+        }
+        function load16() {
+            document.getElementById("message16").innerHTML = "Elastic Net Model is trained now";
+        }
+        function load17() {
+            document.getElementById("message17").innerHTML = "Logistic Regression Model is trained now";
+        }
+        function load18() {
+            document.getElementById("message18").innerHTML = "Decision Tree Classifier Model is trained now";
+        }
+        function load19() {
+            document.getElementById("message19").innerHTML = "Decision Tree Regressor Model is trained now";
+        }
+        function load20() {
+            document.getElementById("message20").innerHTML = "Support Vector Classifier Model is trained now";
+        }
+        function load21() {
+            document.getElementById("message21").innerHTML = "Support Vector Regressor Model is trained now";
+        }
+        function load22() {
+            document.getElementById("message22").innerHTML = "Naive Bayes Classifier Model is trained now";
+        }
+        function load23() {
+            document.getElementById("message23").innerHTML = "Random Forest Classifier Model is trained now";
+        }
+        function load24() {
+            document.getElementById("message24").innerHTML = "AdaBoost Classifier Model is trained now";
+        }
+        function load25() {
+            document.getElementById("message25").innerHTML = "Predictions are done now";
+        }
+        function load26() {
+            document.getElementById("message26").innerHTML = "Accuracies are calculated now";
+        }
+        
+        </script>
+        
+    </body>
+
+    
+    
+</html>
